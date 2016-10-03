@@ -10,10 +10,9 @@
 	LunchCheckController.$inject = ['$scope'];
 
 	function LunchCheckController($scope){
-		$scope.items = "";
-		$scope.message = "";
-		$scope.itemsCount = 0;
 		
+		$scope.items = "";
+		$scope.message = "";	
 		$scope.itemsCheck = function(){
 			
 				if ($scope.items=="") {
@@ -21,14 +20,9 @@
 					return;
 				}
 				var menu = $scope.items;
-				$scope.itemsCount = menu.split(',').length;
-				if($scope.itemsCount<=3){
-					$scope.message = "Enjoy!";
-				}
-				else if($scope.itemsCount>3){
-					$scope.message = "Too much!";	
-				}		
-
+				var itemsCount = menu.split(',').length;
+				itemsCount<=3 ?	$scope.message = "Enjoy!" : $scope.message = "Too much!";
+	
 		};
 		
 
