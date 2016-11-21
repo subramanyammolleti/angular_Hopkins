@@ -13,9 +13,14 @@
 	function ToBuyController(ShoppingListCheckOffService){
 
 		var list1 = this;
+		var list = [{name:'Milk',quantity:10},{name:'Donuts',quantity:10},{name:'Cookies',quantity:100},{name:'Apples',quantity:12},{name:'Sugary Drinks',quantity:2}];
 		list1.removeBroughtItem = removeBroughtItem;
 		list1.items = ShoppingListCheckOffService.getToBuyItems();
 		
+		for (var item in list ) {
+			ShoppingListCheckOffService.addToBuyItems(list[item].name, list[item].quantity);
+		}
+
 		function removeBroughtItem(itemIndex){
 			ShoppingListCheckOffService.removeBroughtItem(itemIndex);
 			
@@ -37,11 +42,20 @@
 	function ShoppingListCheckOffService(){
 	
 		var service = this;
-		var toBuyItems = [{name:"Eggs",quantity:10},{name:"Bread",quantity:1},{name:"Chips",quantity:4},{name:"Milk",quantity:4},{name:"Sugary Drinks",quantity:2}]
+		var toBuyItems = [];
 		var broughtItems = [];
+		service.addToBuyItems = addToBuyItems;
 		service.removeBroughtItem = removeBroughtItem;
 		service.getToBuyItems = getToBuyItems;
 		service.getBroughtItems = getBroughtItems;
+
+		function addToBuyItems(name, quantity){
+			var item = {
+				name : name,
+				quantity : quantity
+			};
+			toBuyItems.push(item);
+		}
 
 		function removeBroughtItem(itemIndex){
 			broughtItems.push(toBuyItems[itemIndex]);
