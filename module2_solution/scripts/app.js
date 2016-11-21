@@ -14,11 +14,18 @@
 
 		var list1 = this;
 		var list = [{name:'Milk',quantity:10},{name:'Donuts',quantity:10},{name:'Cookies',quantity:100},{name:'Apples',quantity:12},{name:'Sugary Drinks',quantity:2}];
+		list1.itemName = "";
+		list1.itemQuantity = "";
 		list1.removeBroughtItem = removeBroughtItem;
+		list1.addToBuyItems =  addToBuyItems;
 		list1.items = ShoppingListCheckOffService.getToBuyItems();
 		
 		for (var item in list ) {
 			ShoppingListCheckOffService.addToBuyItems(list[item].name, list[item].quantity);
+		}
+
+		function addToBuyItems(){
+			ShoppingListCheckOffService.addToBuyItems(list1.itemName, list1.itemQuantity);
 		}
 
 		function removeBroughtItem(itemIndex){
