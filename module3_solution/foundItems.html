@@ -1,0 +1,15 @@
+<!-- <h1>{{title}}</h1>
+ -->
+<br><br>
+<h1>{{title}}</h1>
+{{menu.noItemFlag}}
+<ol class="list-group">
+  <li ng-repeat="item in found">
+  
+    {{ item.description }}
+    
+    <button class="btn btn-primary" ng-click="onRemove({index: $index});">Remove Item</button> 
+  </li>
+</ol>
+
+
