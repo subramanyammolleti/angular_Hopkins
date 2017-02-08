@@ -57,6 +57,15 @@
 				  promise.then(function (response) {
 				  	console.log("getMenuList: ",response);
 				    menu.found = response;
+
+				    console.log("Menu.found: ", menu.found);
+				    console.log("Menu.found: ", menu.found.length);
+
+				    if(menu.found.length == 0){
+				    	console.log("Inside length");
+				    	menu.noItemFlag = true;
+				    }
+
 				  })
 				  .catch(function (error) {
 				    console.log("Something went terribly wrong.");
@@ -96,7 +105,7 @@
 				   	console.log(result.data);
 
 				   	angular.forEach(result.data.menu_items, function(value, key){
-
+debugger;
 				   		if(value.description.toLowerCase().includes(searchItem.toLowerCase())){
 				   		//	debugger;	
 				   			//console.log("value: "+value.description+"  "+"key: "+key);	
