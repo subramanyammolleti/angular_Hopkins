@@ -101,12 +101,14 @@
 		menuSearch.getMatchedMenuItems = function(searchItem){
 			return $http({method: 'GET',url: (ApiBasePath + '/menu_items.json')}).then(function (result) {
     			// process result and only keep items that match
+    			foundItems = [];
    				 	console.log(searchItem);
 				   	console.log(result.data);
 
 				   	angular.forEach(result.data.menu_items, function(value, key){
-debugger;
-				   		if(value.description.toLowerCase().includes(searchItem.toLowerCase())){
+//debugger;
+						var item = value.description.toLowerCase().includes(searchItem.toLowerCase());
+				   		if(item){
 				   		//	debugger;	
 				   			//console.log("value: "+value.description+"  "+"key: "+key);	
 				   			foundItems.push(value);
