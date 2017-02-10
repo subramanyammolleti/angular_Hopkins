@@ -44,6 +44,7 @@
 		menu.searchItem = "";
 		menu.found = [];
 		menu.noItemFlag = false;
+		menu.spin = false;
 
 		menu.getMenuList = function(){
 			
@@ -52,6 +53,7 @@
 			if(menu.searchItem != ""){
 					
 				 menu.noItemFlag = false;
+				 menu.spin = true;
 	
 				  var promise = MenuSearchService.getMatchedMenuItems(menu.searchItem);
 				  promise.then(function (response) {
@@ -60,21 +62,26 @@
 
 				    console.log("Menu.found: ", menu.found);
 				    console.log("Menu.found: ", menu.found.length);
+				    menu.spin = false;
 
 				    if(menu.found.length == 0){
 				    	console.log("Inside length");
 				    	menu.noItemFlag = true;
+				    	menu.spin = false;
 				    }
 
 				  })
 				  .catch(function (error) {
-				    console.log("Something went terribly wrong.");
+				    alert("Something went wrong, Check your log.");
+				    console.log("Error: ",error);
+				    menu.spin = false;
 				  });
 		
 			}
 			else{
 				console.log('inside else');
 				menu.noItemFlag = true;
+				menu.spin = false;
 				
 			}
 
@@ -96,7 +103,7 @@
 	function MenuSearchService($http, ApiBasePath){
 
 		var menuSearch = this;
-		var foundItems = [];
+		var foundItems;
 
 		menuSearch.getMatchedMenuItems = function(searchItem){
 			return $http({method: 'GET',url: (ApiBasePath + '/menu_items.json')}).then(function (result) {
@@ -106,11 +113,10 @@
 				   	console.log(result.data);
 
 				   	angular.forEach(result.data.menu_items, function(value, key){
-//debugger;
+
 						var item = value.description.toLowerCase().includes(searchItem.toLowerCase());
 				   		if(item){
-				   		//	debugger;	
-				   			//console.log("value: "+value.description+"  "+"key: "+key);	
+				   			
 				   			foundItems.push(value);
 				   		}	
 
@@ -125,6 +131,7 @@
 		};
 
 
+		// Methid to remove an element from List
 		menuSearch.removeItem = function(index){
 			console.log('inside remove service');
 				foundItems.splice(index, 1);

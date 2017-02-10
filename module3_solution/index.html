@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/app.js"></script>
@@ -18,6 +19,9 @@
     </div>
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click="menu.getMenuList()">Narrow It Down For Me!</button>
+    </div>
+    <div class="form-group" ng-if="menu.spin">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
     </div>
     
     <!-- Bonus loader (see Bonus section of the assignment) -->
