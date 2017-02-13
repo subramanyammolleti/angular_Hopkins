@@ -60,6 +60,13 @@ input[type="text"] {
   font-style: verdana;
 }
 
-ol li {
-  padding: 4px 0px;
+ul li button{
+  float: right;
+}
+
+.menuli {
+
+  padding: 10px;
+  width: 90%; 
+
 }

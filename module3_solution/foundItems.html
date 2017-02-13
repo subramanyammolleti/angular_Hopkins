@@ -1,15 +1,21 @@
 <!-- <h1>{{title}}</h1>
  -->
 <br><br>
-<h1>{{title}}</h1>
-{{menu.noItemFlag}}
-<ol class="list-group">
+<h3 class="error">{{title}}</h3>
+
+<ul class="list-group">
+
   <li ng-repeat="item in found">
-  
+
+  <div class="menuli">
+
+   <b> {{item.name}}, {{item.short_name}} </b><br/>
     {{ item.description }}
-    
-    <button class="btn btn-info" ng-click="onRemove({index: $index});">Remove Item</button> 
+    <button class="btn" ng-click="onRemove({index: $index});">Remove Item</button>  
+</div>
+
+   
   </li>
-</ol>
+</ul>
 
 

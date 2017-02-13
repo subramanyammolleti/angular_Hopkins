@@ -13,7 +13,6 @@
 	function foundItems(){
         var ddo = {
         	 templateUrl: 'foundItems.html',
-        	 transclude: true,
         	 restrict: 'E',
     		 scope: {
     		 	found: '<',
@@ -40,10 +39,10 @@
 	function NarrowItDownController(MenuSearchService){
 		var menu = this;
 
-		menu.title = "Menu Items"
+		menu.title = ""
 		menu.searchItem = "";
 		menu.found = [];
-		menu.noItemFlag = false;
+		
 		menu.spin = false;
 
 		menu.getMenuList = function(){
@@ -51,8 +50,7 @@
 			console.log('inside getMenuList');
 			
 			if(menu.searchItem != ""){
-					
-				 menu.noItemFlag = false;
+				
 				 menu.spin = true;
 	
 				  var promise = MenuSearchService.getMatchedMenuItems(menu.searchItem);
@@ -62,11 +60,14 @@
 
 				    console.log("Menu.found: ", menu.found);
 				    console.log("Menu.found: ", menu.found.length);
+				    menu.title = "List Of Menu Items Available With "+menu.searchItem;
 				    menu.spin = false;
 
 				    if(menu.found.length == 0){
 				    	console.log("Inside length");
-				    	menu.noItemFlag = true;
+				    	
+
+				menu.title = "NOTHING FOUND";
 				    	menu.spin = false;
 				    }
 
@@ -80,8 +81,9 @@
 			}
 			else{
 				console.log('inside else');
-				menu.noItemFlag = true;
+				menu.title = "NOTHING FOUND";
 				menu.spin = false;
+				menu.found = [];
 				
 			}
 
