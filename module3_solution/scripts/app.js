@@ -24,15 +24,6 @@
         return ddo;
 	}
 
-/*
-	function NarrowItDownDirectiveController() {
-		var menu = this;
-
-		console.log(menu.found);
-		console.log(menu.noItemFlag);
-
-	}*/
-
 
 	// Controller 
 	NarrowItDownController.$inject = ['MenuSearchService'];
@@ -42,12 +33,9 @@
 		menu.title = ""
 		menu.searchItem = "";
 		menu.found = [];
-		
 		menu.spin = false;
 
 		menu.getMenuList = function(){
-			
-			console.log('inside getMenuList');
 			
 			if(menu.searchItem != ""){
 				
@@ -55,21 +43,15 @@
 	
 				  var promise = MenuSearchService.getMatchedMenuItems(menu.searchItem);
 				  promise.then(function (response) {
-				  	console.log("getMenuList: ",response);
+				  	
 				    menu.found = response;
-
-				    console.log("Menu.found: ", menu.found);
-				    console.log("Menu.found: ", menu.found.length);
-				    menu.title = "List Of Menu Items Available With "+menu.searchItem;
 				    menu.spin = false;
 
 				    if(menu.found.length == 0){
-				    	console.log("Inside length");
-				    	
-
-				menu.title = "NOTHING FOUND";
-				    	menu.spin = false;
+				    	menu.title = "NOTHING FOUND";
 				    }
+
+				    menu.title = "List Of Menu Items Available With "+menu.searchItem;
 
 				  })
 				  .catch(function (error) {
@@ -91,7 +73,6 @@
 
 
 		menu.removeItem = function(index){
-			console.log("inside remove controller");
 				MenuSearchService.removeItem(index);
 		};
 
@@ -111,9 +92,7 @@
 			return $http({method: 'GET',url: (ApiBasePath + '/menu_items.json')}).then(function (result) {
     			// process result and only keep items that match
     			foundItems = [];
-   				 	console.log(searchItem);
-				   	console.log(result.data);
-
+   			
 				   	angular.forEach(result.data.menu_items, function(value, key){
 
 						var item = value.description.toLowerCase().includes(searchItem.toLowerCase());
@@ -135,7 +114,7 @@
 
 		// Methid to remove an element from List
 		menuSearch.removeItem = function(index){
-			console.log('inside remove service');
+			
 				foundItems.splice(index, 1);
 		};
 
