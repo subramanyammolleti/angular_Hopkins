@@ -49,6 +49,7 @@
 
 				    if(menu.found.length == 0){
 				    	menu.title = "NOTHING FOUND";
+				    	return;
 				    }
 
 				    menu.title = "List Of Menu Items Available With "+menu.searchItem;
