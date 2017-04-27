@@ -16,7 +16,18 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Home page
   .state('home', {
     url: '/',
-    templateUrl: ''
+    templateUrl: 'src/menulist/templates/home.template.html'
+  })
+
+  .state('categories', {
+    url: '/categories',
+    templateUrl: 'src/menulist/templates/categories.template.html'
+  })
+
+
+  .state('items', {
+    url: '/items',
+    templateUrl: 'src/menulist/templates/items.template.html'
   });
 }
 

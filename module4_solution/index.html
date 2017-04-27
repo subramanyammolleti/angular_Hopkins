@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
   <header>
@@ -21,14 +22,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Yo! China - Chinese Bistro</a>
+          <a class="navbar-brand" ui-sref="home">Yo! China - Chinese Bistro</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">Items</a></li>
+            <li class="active"><a ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+            <!-- <li><a href="#">Categories</a></li>
+            <li><a href="#">Items</a></li> -->
           </ul>
         </div>
       </div>
@@ -38,12 +39,17 @@
   <section>
     <div class="container">
       <div class="jumbotron">
-  <h1>Welcome to Yo! China.</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis assumenda quaerat rem quibusdam repudiandae eaque. Expedita eligendi minima, iste blanditiis, libero impedit natus maxime fugit, totam aspernatur facilis accusamus sequi!</p>
-  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
-</div>
+        <h1>Welcome to Yo! China.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis assumenda quaerat rem quibusdam repudiandae eaque. Expedita eligendi minima, iste blanditiis, libero impedit natus maxime fugit, totam aspernatur facilis accusamus sequi!</p>
+        <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+      </div>
+      
+      <ui-view></ui-view>
+
     </div>
   </section>
+
+
 
 
   <!-- jQuery (Bootstrap JS plugins depend on it) -->
@@ -51,5 +57,11 @@
   <script src="lib/bootstrap.min.js"></script>
   <script src="lib/angular.min.js"></script>
   <script src="lib/angular-ui-router.min.js"></script>
+
+
+  <script type="text/javascript" src="src/menulist/menuapp.module.js"></script>
+  <script type="text/javascript" src="src/menulist/data.module.js"></script>
+  <script type="text/javascript" src="src/routes.js"></script>
+
 </body>
 </html>
