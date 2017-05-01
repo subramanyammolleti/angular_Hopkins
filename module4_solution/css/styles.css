@@ -3,3 +3,5 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+.menu-link {display: block;}
+.menu-link:hover {font-size: 25px; color:gray;}
