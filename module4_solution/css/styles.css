@@ -5,3 +5,5 @@ body {
 
 .menu-link {display: block;}
 .menu-link:hover {font-size: 25px; color:gray;}
+
+.list-group-item:hover { background-color: #ced7de; cursor: pointer;}

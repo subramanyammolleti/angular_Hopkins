@@ -1,0 +1,10 @@
+<ul class="list-group">
+	<li class="list-group-item justify-content-between" ng-repeat="item in $ctrl.items">
+    <div class="menuli" ui-sref="items({itemname:{{item.short_name}}})">
+
+			<b> {{item.name}} </b><br/>
+			{{item.special_instructions}}
+			
+	</div>		
+  </li>
+</ul>

@@ -1,9 +1,9 @@
 (function () {
 'use strict';
 
-angular.module('ShoppingList')
-.component('shoppingList', {
-  templateUrl: 'src/shoppinglist/templates/shoppinglist.template.html',
+angular.module('MenuApp')
+.component('menuCategoriesList', {
+  templateUrl: 'src/menulist/templates/categorieslist.template.html',
   bindings: {
     items: '<'
   }

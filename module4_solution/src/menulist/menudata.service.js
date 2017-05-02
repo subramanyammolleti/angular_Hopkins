@@ -32,6 +32,7 @@ function MenuService($http) {
 			headers: { 'Content-Type': 'application/json' }
 		});
 
+//		alert(response);
 		return response;
 	} 	
 
